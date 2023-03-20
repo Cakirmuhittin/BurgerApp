@@ -1,0 +1,61 @@
+﻿@using BurgerApp.Areas.Identity.Data;
+@model List<ExtraMalzeme>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+<div class="row mt-3">
+
+    <table class="d-lg-table table-bordered table table-hover">
+        <thead>
+            <tr>
+                <th class="text-white fw-bold ">Menü Resmi</th>
+                <th class="text-white fw-bold ">Menü Adı</th>
+                <th class="text-white fw-bold ">Menü Fiyat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img width="150px" height="65px" src="~/img/@ViewBag.Resim" alt="resim yok"></td>
+                <td class="text-white fw-bold fs-3 ">@ViewBag.Menu</td>
+                <td><p class="text-white fw-bold fs-3">$@ViewBag.Fiyat.ToString("0.00")</p></td>
+            </tr>
+        </tbody>
+
+    </table>
+
+</div>
+@*<div class="row">
+    <div class="col-lg-3 col-md-4">
+        <div class="card" style="width:14rem;  border:2px solid wheat ; border-radius:3px;">
+            <img class="card-img mt-2" src="~/img/@ViewBag.Resim" alt="resim yok">
+
+            <div class="card-body fw-bold text-white">
+                <h5 class="card-title">@ViewBag.Menu</h5>
+                <p class="card-text">$@ViewBag.Fiyat.ToString("0.00")</p>
+                <a asp-controller="Siparis" asp-action="Index" class="btn btn-primary">Sipariş Ver</a>
+            </div>
+
+        </div>
+    </div>
+</div>*@
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <h1 class="text-center fw-bold fst-italic text-warning">EXTRA MALZEMELER</h1>
+    </div>
+    <div class="row pb-3">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-3 col-md-4">
+                <div class="card" style="width:14rem;  border:2px solid wheat ; border-radius:3px;">
+                    <img class="card-img mt-2" src="~/img/@item.Resim" alt="resim yok">
+
+                    <div class="card-body fw-bold text-white">
+                        <h5 class="card-title">@item.ExtraMalzemeAdi</h5>
+                        <p class="card-text">$@item.ExtraMalzemeFiyat.ToString("0.00")</p>
+                        <a asp-controller="Siparis" asp-action="Sepet" asp-route-id="@item.Id" class="btn btn-primary">Malzeme Ekle</a>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,53 @@
+﻿@using BurgerApp.Areas.Identity.Data;
+@model List<Menu>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<div>
+    <h1 class="text-center d-flex justify-content-center fw-bold fst-italic text-danger mt-2">MENÜLER</h1>
+</div>
+
+<div class="container p-3">
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>
+                    Ad
+                </th>
+                <th>Fiyat</th>
+                <th>Resim</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.MenuAdi</td>
+                        <td>@item.Fiyat</td>
+
+                         <td>
+                            <img height="50px" width="70px" alt="Resim yok" src="~/img/@item.Resim">
+                        </td>
+                        <td> <a asp-action="Sil" asp-route-id="@item.Id" class="btn btn-danger" style="width:150px"> <i class="fa-solid fa-trash"></i> SİL</a> </td>
+                        <td> <a asp-action="Guncelle" asp-route-id="@item.Id" class="btn btn-warning" style="width:150px">  <i class="fa-solid fa-bolt"></i> GUNCELLE</a> </td>
+                    </tr>
+
+                }
+            }
+        </tbody>
+
+    </table>
+</div>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2> Yeni Menu Ekle</h2>
+
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Menu" asp-action="Ekle" class="btn btn-success"><i class="fa-solid fa-plus"></i></a>
+        </div>
+
+    </div>
+
+</div>

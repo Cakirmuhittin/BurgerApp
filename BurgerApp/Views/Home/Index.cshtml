@@ -1,0 +1,111 @@
+﻿
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+<div class="row">
+    <h1 class="d-flex text-center justify-content-center mt-2 fst-italic text-danger fw-bold"><i class="bi bi-fire"></i>Hot's</h1>
+</div>
+
+<div>
+
+   
+    <div id="carouselExampleIndicators" class=" carousel slide mb-4 mt-1" data-bs-ride="true">
+       @* @{
+            var adet = 0;
+            var adett = 1;
+        }
+        @foreach (var item in TempData["resimler"] as string[])
+        {
+            if (adet == 0)
+            {
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" class="active" data-bs-slide-to="@adet.ToString()" aria-current="true" aria-label="Slide @adett.ToString()"></button>
+                </div>
+
+            }
+            else
+            {
+
+                <div class="carousel-indicators">
+
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="@adet.ToString()" aria-label="Slide @adett.ToString()"></button>
+                </div>
+            }
+            adet++;
+            adett++;
+        }
+
+        @{
+            var counter = 0;
+        }
+
+        <div class="carousel-inner">
+            @foreach (var item in TempData["resimler"] as string[])
+            {
+                var isim = item.Split("\\");
+                var resimIsmi = isim[isim.Length - 1];
+                if (counter == 0)
+                {
+                    <div class="carousel-item active">
+
+                        <img src="~/img/@resimIsmi.ToString()" class="d-block w-100" height="500" />
+                        <div class="carousel-caption">
+                            <h3 class="fst-italic fw-bold">HotBurger</h3>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="carousel-item">
+                        <img src="~/img/@resimIsmi.ToString()" class="d-block w-100" height="500" />
+                        <div class="carousel-caption">
+                            <h3 class="fst-italic fw-bold">CheeseBurger</h3>
+                        </div>
+                    </div>
+                }
+                counter++;
+            }
+
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>*@
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/img/burger1.jfif" class="d-block w-100" height="500" />
+                <div class="carousel-caption">
+                    <h3 class="fst-italic fw-bold">HotBurger</h3>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="~/img/burger2.jfif" class="d-block w-100" height="500" />
+                <div class="carousel-caption">
+                    <h3 class="fst-italic fw-bold">CheeseBurger</h3>
+                </div>
+            </div>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+
+    </div>
+    <div>
+        <a class="btn btn-warning" asp-controller="Home" asp-action="MenuEkle"> Siparis Ver..</a>
+    </div>
+</div>

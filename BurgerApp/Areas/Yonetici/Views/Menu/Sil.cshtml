@@ -1,0 +1,26 @@
+﻿@using BurgerApp.Areas.Identity.Data;
+@model Menu
+<form method="post" asp-action="SilOnay">
+    <input asp-for="Id" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="bg-info text-white">Extra Malzeme Sil</h2>
+            <hr />
+
+        </div>
+        <div class=" mb-3">
+            <label asp-for="MenuAdi"></label>
+            <input asp-for="MenuAdi" class="form-control" disabled />
+
+        </div>
+        <div class=" mb-3">
+            <label asp-for="Fiyat"></label>
+            <input asp-for="Fiyat" class="form-control" disabled />
+
+        </div>
+        <button class="btn btn-danger" style="width:150px" type="submit">Sil</button>
+        <a asp-controller="Menu" asp-action="Index" class="btn btn-warning">Geri Don</a>
+
+    </div>
+
+</form>

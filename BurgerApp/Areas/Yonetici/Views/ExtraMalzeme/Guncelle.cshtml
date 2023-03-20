@@ -1,0 +1,25 @@
+﻿@model ExtraMalzemeViewModel
+
+<div class="card">
+    <div class="card-header">
+        <h1> Guncelleme</h1>
+    </div>
+    <div class="card-body">
+        <form asp-area="Yonetici" asp-action="Guncelle" asp-controller="ExtraMalzeme" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="ExtraAd">Malzeme Adı:</label>
+                <input asp-for="ExtraAd" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ExtraFiyat">Malzeme Fiyatı:</label>
+                <input asp-for="ExtraFiyat" class="form-control" />
+            </div>           
+            <div class="form-group">
+                <label asp-for="Resim">Resim Guncelleme :</label>
+                <input type="file" class="form-control" asp-for="Resim" />
+            </div>
+            <button type="submit" class="btn btn-primary">Guncelle</button>
+        </form>
+    </div>
+</div>
+

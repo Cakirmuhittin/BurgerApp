@@ -1,0 +1,36 @@
+﻿@using BurgerApp.Areas.Identity.Data;
+@model ExtraMalzemeViewModel
+<div class="card">
+    <div class="card-header"><h1 class="bg-primary text-center"> Extra Malzeme Ekle</h1>
+        </div>
+
+
+    <div class="card-body">
+
+        <form asp-action="Ekle" asp-area="Yonetici" asp-controller="ExtraMalzeme" method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+
+                <label asp-for="ExtraAd"> Malzeme Adı</label>
+                <input asp-for="ExtraAd" class="form-control" />
+
+            </div>
+            <div class="form-group">
+
+                <label asp-for="ExtraFiyat"> Malzeme Fiyat</label>
+                <input asp-for="ExtraFiyat" class="form-control" />
+
+            </div>          
+            <div class="form-group">
+                <label asp-for="Resim">Resim ekleme</label>
+                <input asp-for="Resim" type="file" class="form-control" />
+               
+
+            </div>
+            <button type="submit" class="btn btn-success mt-3">Extra Malzeme Ekle</button>
+
+        </form>
+
+    </div>
+
+</div>
